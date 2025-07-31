@@ -208,3 +208,10 @@ __marimo__/
 
 # sqlite stuff
 *.db
+
+# SSH Stuff
+*.pub
+ansible/inventory-actual
+*.retry
+.ansible/
+ansible/vars/secrets.yml

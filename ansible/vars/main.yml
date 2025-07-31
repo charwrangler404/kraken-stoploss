@@ -1,0 +1,47 @@
+---
+influx-user:
+  name: influx
+  locked: true
+  create_home: true
+  ssh_pub_keys:
+    - "id_ed25519.pub"
+
+sshd:
+  generate_config_snippet: false
+  root_key_only: true
+
+dbvolume:
+  mount_location: "/home/{{ influx-user.name }}"
+  lvm:
+    volume_devices:
+      - "/dev/blah" # expects a dictionary
+    physical_volumes:
+    vgname: home
+    lvname: influx
+
+
+
+fstab:
+
+
+apt:
+  packages:
+    - ufw
+    - vim
+
+    - lvm2
+
+firewall:
+  default:
+    rule: deny
+    delete: false
+  additional_rules:
+    - rule_name: "allow ssh"
+      rule: allow
+      to_port: "22/tcp"
+      from_ip: "0.0.0.0"
+      delete: false
+
+influx:
+
+permissions:
