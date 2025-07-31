@@ -1,0 +1,11 @@
+[project]
+name = "kraken-stoploss"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "influxdb3-python>=0.14.0",
+    "pandas>=2.3.1",
+    "websockets>=15.0.1",
+]
